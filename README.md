@@ -8,4 +8,4 @@ A project designed to learn about creating new processes and how to communicate 
 
 The program admits 4 arguments (plus the program's name ./pipex), being the first one the name of the file to be read, then the two commands that will be executed simulating the pipe operation, and finally the name of the output file.
 
-With this, the command "./pipex infile command1 command2 outfile" works the same way as "<infile command1 | command2>outfile", as it is shown on the images above.
+With this, the command "./pipex infile command1 command2 outfile" works the same way as "<infile command1 | command2>outfile", as it is shown in the image above.
