@@ -6,7 +6,7 @@
 /*   By: jsarabia <jsarabia@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/11 16:39:29 by jsarabia          #+#    #+#             */
-/*   Updated: 2023/05/16 18:45:40 by jsarabia         ###   ########.fr       */
+/*   Updated: 2023/05/17 14:54:10 by jsarabia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,13 +33,13 @@ char	*find_command(char *argv, char **paths)
 	char	*str;
 	char	*temp;
 	char	*aux;
-	int		cont;
 
-	cont = 0;
 	argv = check_param(argv);
-	while (paths[cont] != '\0')
+	if (access(argv, F_OK) == 0)
+		return (argv);
+	while (*paths != '\0')
 	{
-		aux = ft_strjoin(paths[cont], "/");
+		aux = ft_strjoin(*paths, "/");
 		temp = ft_strjoin(aux, argv);
 		if (access(temp, F_OK) == 0)
 		{
@@ -49,9 +49,9 @@ char	*find_command(char *argv, char **paths)
 			free(argv);
 			return (str);
 		}
+		paths++;
 		free(temp);
 		free(aux);
-		cont++;
 	}
 	free(argv);
 	return (NULL);

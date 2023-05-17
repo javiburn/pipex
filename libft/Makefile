@@ -6,7 +6,7 @@
 #    By: jsarabia <jsarabia@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/10 16:54:26 by jsarabia          #+#    #+#              #
-#    Updated: 2023/05/11 16:34:36 by jsarabia         ###   ########.fr        #
+#    Updated: 2023/05/17 14:57:51 by jsarabia         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,7 +29,7 @@ $(NAME): $(OBJS)
 	ar rcs libft.a $(OBJS) libft.h
 
 bonus: $(OBJSBONUS) $(OBJS)
-	ar rcs libft.a $(OBJSBONUS) $(OBJS) libft.h
+	@ar rcs libft.a $(OBJSBONUS) $(OBJS) libft.h
 	@echo "$(GREEN)Libft successfully created$(WHITE)"
 
 %.o : %.c
