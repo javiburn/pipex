@@ -1,7 +1,7 @@
 # pipex
 Simulating the pipe operator "|" in C language.
 
-A project designed to learn about creating new processes and communicating between them. With this project I learned how the fork(), pipe() and dup2() functions work.
+A project designed to learn about creating new processes and how to communicate between them. With this project I learned how the fork(), pipe() and dup2() functions work.
 
 <img width="789" alt="Screen Shot 2023-05-17 at 12 06 57 PM" src="https://github.com/javiburn/pipex/assets/72255876/22c78cd0-6c10-46d0-9d7a-d4e04eca42bb">
 
