@@ -6,7 +6,7 @@
 /*   By: jsarabia <jsarabia@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/12 15:12:11 by jsarabia          #+#    #+#             */
-/*   Updated: 2023/05/16 17:51:56 by jsarabia         ###   ########.fr       */
+/*   Updated: 2023/05/24 13:45:24 by jsarabia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,7 +91,7 @@ t_pipe	exec_command_two(t_data data, t_pipe f_prog, char **env)
 	dup2(f_prog.fd[0], STDIN_FILENO);
 	close(f_prog.fd[0]);
 	close(f_prog.fd[1]);
-	f_prog.o_fd = open(data.outfile, O_WRONLY | O_CREAT, 0644);
+	f_prog.o_fd = open(data.outfile, O_WRONLY);
 	dup2(f_prog.o_fd, 1);
 	execve(data.second_command, arr, env);
 	free_matrix(arr);

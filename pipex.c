@@ -6,7 +6,7 @@
 /*   By: jsarabia <jsarabia@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/11 16:39:29 by jsarabia          #+#    #+#             */
-/*   Updated: 2023/05/17 14:54:10 by jsarabia         ###   ########.fr       */
+/*   Updated: 2023/05/24 13:54:50 by jsarabia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,7 +87,7 @@ t_data	checks(int argc, char **argv, char **env, t_data data)
 {
 	char	**paths;
 
-	if (argc != 5)
+	if (argc != 5 || access(data.infile, F_OK != 0))
 	{
 		perror("arguments");
 		exit(EXIT_FAILURE);
@@ -116,7 +116,11 @@ int	main(int argc, char **argv, char **env)
 	t_data	data;
 	t_pipe	prog;
 
-	prog.id = 0;
+	if (env[0] == NULL)
+	{
+		perror("environment");
+		exit(EXIT_FAILURE);
+	}
 	data.infile = argv[1];
 	data.outfile = argv[4];
 	unlink(data.outfile);
@@ -134,5 +138,4 @@ int	main(int argc, char **argv, char **env)
 	close(prog.fd_aux[0]);
 	close(prog.fd_aux[1]);
 	exit(0);
-	return (0);
 }
