@@ -87,7 +87,7 @@ t_data	checks(int argc, char **argv, char **env, t_data data)
 {
 	char	**paths;
 
-	if (argc != 5 || access(data.infile, F_OK != 0))
+	if (argc != 5 || access(data.infile, F_OK) != 0)
 	{
 		perror("arguments");
 		exit(EXIT_FAILURE);
